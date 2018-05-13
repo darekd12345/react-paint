@@ -25,7 +25,7 @@ Installation
 To-Do
 -----
 - [ ] Implement misssing tools (text, circle, fill, eraser)
-- [ ] Implement setting different line withs and fills
+- [ ] Implement setting different line widths and fills
 - [ ] Include color picker for adding additional colors
 
 Used libraries
