@@ -30,6 +30,10 @@ module.exports = {
           'postcss-loader'
         ],
         include: __dirname + '/src'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   },
