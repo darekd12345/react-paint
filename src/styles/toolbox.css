@@ -1,0 +1,46 @@
+.toolbox {
+    box-sizing: boder-box;
+    width: 70px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 2px;
+
+    & svg {
+        fill: rgb(110, 110, 110);
+    }
+ 
+    &:hover {
+        background-color: white;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+        transition: all 0.1s;
+
+        & svg {
+            fill: black;
+        }
+    }
+
+    &:active {
+        transform: translateY(0px);
+        opacity: 0.8;
+    }
+
+    &.selected {
+        background-color: rgb(91, 82, 145);
+
+        & svg {
+            fill: white;
+        }
+    }
+}
