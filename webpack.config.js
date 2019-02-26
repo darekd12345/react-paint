@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
@@ -20,20 +22,28 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         use: [
-          'style-loader',
-          { 
-            loader: 'css-loader', 
-            options: { importLoaders: 1 } 
+          {
+            loader: "vue-style-loader"
           },
-          'postcss-loader'
-        ],
-        include: __dirname + '/src'
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
+        loader: "svg-inline-loader"
       }
     ]
   },

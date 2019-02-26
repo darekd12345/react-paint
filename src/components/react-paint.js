@@ -18,41 +18,52 @@ import erase from "../images/erase.svg";
 import picker from "../images/picker.svg";
 
 const toolbarItems = [
-    {name: "Pencil", image: pencil},
-    {name: "Line", image: line},
-    {name: "Brush", image: brush},
-    {name: "Fill", image: fill},
-    {name: "Text", image: text},
-    {name: "Rectangle", image: rectangle},
-    {name: "Circle", image: circle},
-    {name: "Erase", image: erase},
-    {name: "Picker", image: picker}
+  { name: "Pencil", image: pencil },
+  { name: "Line", image: line },
+  { name: "Brush", image: brush },
+  { name: "Fill", image: fill },
+  { name: "Text", image: text },
+  { name: "Rectangle", image: rectangle },
+  { name: "Circle", image: circle },
+  { name: "Erase", image: erase },
+  { name: "Picker", image: picker }
 ];
 
 export default class ReactPaint extends React.Component {
-    constructor (props) {
-        super(props);
-        this.state = {color: defaultColor, selectedItem: defaultTool, toolbarItems: toolbarItems};
-        this.changeColor = this.changeColor.bind(this);
-        this.changeTool = this.changeTool.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: defaultColor,
+      selectedItem: defaultTool,
+      toolbarItems: toolbarItems
+    };
+    this.changeColor = this.changeColor.bind(this);
+    this.changeTool = this.changeTool.bind(this);
+  }
 
-    changeColor (event) {
-        this.setState({color: event.target.style.backgroundColor});
-    }
+  changeColor(event) {
+    this.setState({ color: event.target.style.backgroundColor });
+  }
 
-    changeTool (event, tool) {
-        this.setState({selectedItem: tool})
-    }
+  changeTool(event, tool) {
+    this.setState({ selectedItem: tool });
+  }
 
-    render () {
-        return (
-            <React.Fragment>
-                <MenuBar />
-                <Content items={this.state.toolbarItems} activeItem={this.state.selectedItem} 
-                    handleClick={this.changeTool} color={this.state.color} />
-                <ColorPanel selectedColor={this.state.color} handleClick={this.changeColor} />
-            </React.Fragment>
-        )
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <MenuBar />
+        <Content
+          items={this.state.toolbarItems}
+          activeItem={this.state.selectedItem}
+          handleClick={this.changeTool}
+          color={this.state.color}
+        />
+        <ColorPanel
+          selectedColor={this.state.color}
+          handleClick={this.changeColor}
+        />
+      </React.Fragment>
+    );
+  }
 }
